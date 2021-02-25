@@ -42,9 +42,11 @@ app.get("/results", async (req, res) => {
   }
 });
 
-app.get("/detail", async (req, res) => {
-  res.json({ message: 'SHOW ME SOME DEETS!'})
-})
+app.get("/detail/:movie_id", async (req, res) => {
+  const results = await axios.get(
+    `http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${req.query.search}`)
+    res.json({ movie: results.data })
+  })
 
 // The app.listen function returns a server handle
 app.listen(PORT, () => {
