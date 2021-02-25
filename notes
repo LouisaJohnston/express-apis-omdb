@@ -1,0 +1,9 @@
+npm i
+
+npm i axios
+
+npm i dotenv
+
+touch .env
+
+echo .env >> .gitignore
